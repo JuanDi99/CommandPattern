@@ -1,14 +1,12 @@
 from abc import ABCMeta, abstractmethod
 
-class ICommand(metaclass=ABCMeta):  # pylint: disable=too-few-public-methods
+class ICommand(metaclass=ABCMeta):  # IComand
     "La interfaz command, que todos los comandos van a implementar"
     @staticmethod
     @abstractmethod
     def execute():
         """
         Se requiere un metodo execute para todos los objetos command
-        The required execute method that all command objects
-        will use
         """
 
 class Invoker:
@@ -29,14 +27,14 @@ class Receiver:
     "Clase Receiver"
     @staticmethod
     def run_command_1():
-        "A set of instructions to run"
-        print("Executing Command 1")
+        "Se setea las instrucciones para ejecutar"
+        print("Ejecutando Comando 1")
     @staticmethod
     def run_command_2():
-        "A set of instructions to run"
-        print("Executing Command 2")
+        "Se setea las instrucciones para ejecutar"
+        print("Ejecutando Comando 2")
 
-class Command1(ICommand):  # pylint: disable=too-few-public-methods
+class Command1(ICommand):  # Concrete Command
     """ un objeto Command, que implementa la interfaz ICommand y ejecuta el comando designado en receiver
     """
     def __init__(self, receiver):
@@ -44,7 +42,7 @@ class Command1(ICommand):  # pylint: disable=too-few-public-methods
     def execute(self):
         self._receiver.run_command_1()
 
-class Command2(ICommand):  # pylint: disable=too-few-public-methods
+class Command2(ICommand):  # Concrete Command
     """
     un objeto Command, que implementa la interfaz ICommand y ejecuta el comando designado en receiver
     """

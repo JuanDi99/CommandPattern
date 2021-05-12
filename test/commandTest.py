@@ -7,16 +7,24 @@ from src.Receiver import *
 
 
 class ReceiverTest(unittest.TestCase):
-    def test_lista(self):
+    def test_1_lista(self):
         command1 = Invoker()
         self.assertEqual(0, len(command1._commands))
 
-    def test_2(self):
+    def test_2_comparar_comandos_iguales(self):
         command1 = Receiver()
+        command2 = Receiver()
         command1.run_command_1()
-        self.assertEqual(command1,command1)
+        command2.run_command_1()
+        self.assertNotEqual(command1,command2)
+    
+    def test_3_comparar_comandos_distintos(self):
+        command1 = Receiver()
+        command2 = Receiver()
+        self.assertNotEqual(command1,command2)
 
-
+    
+        
 
 
 
@@ -24,4 +32,4 @@ class ReceiverTest(unittest.TestCase):
 
 
     
-if __name__ == '__main__': unittest.main()
+    if __name__ == '__main__': unittest.main()
